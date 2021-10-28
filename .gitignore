@@ -3,3 +3,9 @@ BankAppAiudo/obj/Debug/
 BankAppAiudo.csproj
 BankAppAiudo/BankAppAiudo.csproj
 .vs/BankAppAiudo/DesignTimeBuild/
+*.suo
+*.user
+bin
+obj
+*.pdb
+*.cache
