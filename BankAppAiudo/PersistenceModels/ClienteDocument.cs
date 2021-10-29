@@ -5,7 +5,20 @@ using System.Threading.Tasks;
 
 namespace BankAppAiudo.PersistenceModels
 {
-    public class ClienteDocument
+    public class ClienteDocument //Esta clase sirve de cliente simplificado para poder guardarlo.
     {
+        public string Id { get; protected set; }
+        public string Password { get; protected set; }
+        public int AccountNumber { get; set; }
+        public double Balance { get; protected set; }
+
+        public ClienteDocument(string id, string password, int accnumber, double balance) 
+        {
+            Id = id;
+            Password = password;
+            AccountNumber = accnumber;
+            Balance = balance;
+        }
+
     }
 }
