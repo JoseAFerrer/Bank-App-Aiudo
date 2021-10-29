@@ -6,8 +6,7 @@ using System.Collections.Generic;
 namespace BankAppAiudo.Services
 {
     public interface IBankAppRepository
-    { //Todo: si queremos implementar las opciones de cuenta maestra, descomentarlas e implementarlas (realmente es casi como copiar las otras)
-       //Todo: ídem, escribir las que no están escritas, es a partir de CRUD Movements. 
+    {
         #region CRUD Users
             #region Conceptualmente, la C de CRUD Users
             IUser CreateUser(string id, string password, double amount);
@@ -36,6 +35,7 @@ namespace BankAppAiudo.Services
         Transferencia TransferMoney(string destination, string responsibleId, string responsiblepassword, string concepto, string message, double amount);
         Prestamo AskForALoan(string origin, string responsibleId, string responsiblepassword,  string concepto, string message, double amount);
         //Todo: realmente cuando pides un préstamo siempre viene de la misma cuenta. Así que se podría quitar de la invocación del método para hacerlo más ligero.
+        //Habría que pensar si se puede hacer, pero sería definirlo de manera global y estática, y eso no mola mucho...
         #endregion
 
         //Todo: poner en el controlador un método que sea ejecutar deuda, que llame a TransferMoney y lo rellene solo, de manera que se cobren las deudas.

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankAppAiudo.Controllers //TODO Este es el controlador bueno de los usuarios.
+namespace BankAppAiudo.Controllers 
 {
     [ApiController]
     [Route("api/userarea/movements")] //    [Route("api/userarea/{userId}/movements")] Antes era así pero daba problemas. todo: arreglar.

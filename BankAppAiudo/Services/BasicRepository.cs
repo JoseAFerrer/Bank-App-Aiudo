@@ -37,10 +37,10 @@ namespace BankAppAiudo.Services
 
             var userfromDB =_context.Users.Find(id);
 
-            return _mapper.Map<Cliente>(userfromDB); //Todo: sacar esto de aquí, utilizarlo para el resto del repo
+            return _mapper.Map<Cliente>(userfromDB); 
         }
         public IUser GetUser(string id, string password)
-        { //TODO conseguir el cliente realmente de la base de datos, y no inventárselo (esto es relleno).
+        {
             var userfromDB = _context.Users.Find(id);
             if (!(userfromDB.Password == password))
             {
@@ -188,17 +188,6 @@ namespace BankAppAiudo.Services
 
             cliente.Historial = histocliente;
             cliente.Deudas = deudacliente;
-            //foreach (var movimiento in movementsdocument)
-            //{
-            //    if (movimiento.Interest > 0)
-            //    {
-            //        cliente.Historial.Add(_mapper.Map<Prestamo>(movimiento));
-            //    }
-            //    else
-            //    {
-            //        cliente.Historial.Add(_mapper.Map<Transferencia>(movimiento));
-            //    }
-            //}
             //Todo: meter también la deuda y el método para ejecutar la deuda, que se expresaría al usuario con HATEOAS.
             return cliente;
         }
