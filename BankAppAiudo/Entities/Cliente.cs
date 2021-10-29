@@ -15,11 +15,11 @@ namespace BankAppAiudo.Entities
         public List<IMovimiento> Historial { get; protected set; }
         public List<Debt> Deudas { get; protected set; }
 
-        public Cliente(string id, string password, double amount)
+        public Cliente(string id, string password, int accnumber)
         {
             Id = id;
             Password = password;
-            Balance = amount;
+            AccountNumber = accnumber;
         }
 
 

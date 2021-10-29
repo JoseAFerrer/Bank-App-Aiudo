@@ -1,3 +1,4 @@
+using BankAppAiudo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,9 @@ namespace BankAppAiudo
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BankAppAiudo", Version = "v1" });
             });
+
+            services.AddScoped<IBankAppRepository, BasicRepository>(); // Esto inyecta el repositorio básico como servicio scoped.
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
