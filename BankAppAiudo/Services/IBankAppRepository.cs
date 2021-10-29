@@ -1,5 +1,6 @@
 ﻿using BankAppAiudo.Entities;
 using BankAppAiudo.Helpers;
+using BankAppAiudo.PersistenceModels;
 using System.Collections.Generic;
 
 namespace BankAppAiudo.Services
@@ -18,13 +19,13 @@ namespace BankAppAiudo.Services
                 #endregion
 
             #region Conceptualmente, la U de CRUD Users
-                IUser UpdateUser(string id, string password, IUser reneweduser);
+                IUser UpdatePassword(string id, string password, string newpassword);
                 // IUser UpdateUserMaster(string id, string masterid, string masterpassword, IUser reneweduser);
                 #endregion
 
             #region Conceptualmente, la D de CRUD Users
-                IUser DeleteUser(string id, string password);
-                // IUser DeleteUserMaster(string id, string masterid, string masterpassword);
+                void DeleteUser(string id, string password);
+        // IUser DeleteUserMaster(string id, string masterid, string masterpassword);
         #endregion
         #endregion
 
@@ -32,8 +33,8 @@ namespace BankAppAiudo.Services
         #region CRUD Movements
 
         #region Create Movements
-        Transferencia TransferMoney(string origin, string destination, string responsible, string concepto, string message, double amount);
-        Prestamo AskForALoan(string origin, string destination, string responsible, string concepto, string message, double amount);
+        Transferencia TransferMoney(string destination, string responsibleId, string responsiblepassword, string concepto, string message, double amount);
+        Prestamo AskForALoan(string origin, string responsibleId, string responsiblepassword,  string concepto, string message, double amount);
         //Todo: realmente cuando pides un préstamo siempre viene de la misma cuenta. Así que se podría quitar de la invocación del método para hacerlo más ligero.
         #endregion
 
@@ -55,5 +56,8 @@ namespace BankAppAiudo.Services
 
 
         #endregion
+
+
+        Cliente FillUser(Cliente client);
     }
 }

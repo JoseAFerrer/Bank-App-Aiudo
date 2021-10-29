@@ -8,12 +8,12 @@ namespace BankAppAiudo.Entities
 {
     public class Cliente : IUser
     {
-        public string Id { get; protected set; }
-        public string Password { get; protected set; }
+        public string Id { get;  set; }
+        public string Password { get;  set; }
         public int AccountNumber { get;  set; }
-        public double Balance { get; protected set; }
-        public List<IMovimiento> Historial { get; protected set; }
-        public List<Debt> Deudas { get; protected set; }
+        public double Balance { get;  set; }
+        public List<IMovimiento> Historial { get;  set; }
+        public List<Debt> Deudas { get;  set; }
 
         public Cliente(string id, string password, int accnumber) //Todo: realmente cuando cargues un cliente el número de cuenta ya lo tendrás,
                                                                   //así que no tiene sentido pedirlo porque la base de datos siempre te lo va a dar.
@@ -52,7 +52,5 @@ namespace BankAppAiudo.Entities
 
             return result;
         }
-
-
     }
 }

@@ -12,7 +12,7 @@ namespace BankAppAiudo.PersistenceModels
         public string Id { get; protected set; }
         public string Password { get; protected set; }
         public int AccountNumber { get; set; }
-        public double Balance { get; protected set; }
+        public double Balance { get;  set; }
 
         public ClienteDocument(string id, string password, int accnumber, double balance)
         {
