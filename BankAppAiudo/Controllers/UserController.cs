@@ -10,43 +10,59 @@ using System.Threading.Tasks;
 namespace BankAppAiudo.Controllers //TODO Este es el controlador bueno de los usuarios.
 {
     [ApiController]
-    [Route("api/users")]
+    [Route("api/userarea")]
     public class UserController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<UserController> _logger;
-        private readonly IBankAppRepository bankAppRepository;
+        private readonly IBankAppRepository _bankAppRepository;
 
         public UserController(ILogger<UserController> logger, IBankAppRepository bankAppRepository)
         {
             _logger = logger;
-            this.bankAppRepository = bankAppRepository;
+            _bankAppRepository = bankAppRepository;
         }
 
-        [HttpGet(Name ="GetUser")]
+        [HttpGet(Name ="Look at your profile")]
         [HttpHead]
-        public Cliente GetUser()
+        public Cliente GetUser(
+            string userid,
+            string userpassword)
         {
-            //Todo: esto obviamente hay que corregirlo, es provisional. De hecho, tendrá que venir del header, o de algún otro sitio.
-            var userid = "Pepetoni"; var userpassword = "pepetonispassword";
-            var cliente = bankAppRepository.GetUser(userid, userpassword);
+            var cliente = _bankAppRepository.GetUser(userid, userpassword);
 
             return (Cliente)cliente;
         }
 
-        [HttpPost(Name = "CreateUser")]
+        [HttpPost(Name = "Create a new user")]
         public Cliente CreateUser(
             string userid,
             string userpassword,
             double amount)
         {
-            var cliente = bankAppRepository.CreateUser(userid, userpassword, amount);
+            var cliente = _bankAppRepository.CreateUser(userid, userpassword, amount);
 
             return (Cliente)cliente;
+        }
+
+        [HttpPut(Name = "Update your password")]
+        public Cliente Update(
+            string userid,
+            string userpassword,
+            string newpassword)
+        {
+            var cliente = _bankAppRepository.UpdatePassword(userid, userpassword, newpassword);
+
+            return (Cliente)cliente;
+        }
+
+        [HttpDelete(Name = "Delete your user (it's forever!)")]
+        public void DeleteUser(
+                            string userid,
+                            string userpassword)
+        {
+            _bankAppRepository.DeleteUser(userid, userpassword);
+
+            return ;
         }
     }
 }

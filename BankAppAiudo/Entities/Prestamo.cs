@@ -27,5 +27,10 @@ namespace BankAppAiudo.Entities
         {//Ctor de préstamo ya existente.
             OriginId = origin; DestinationId = destination; Time = time; ResponsibleForThisId = responsible; Concepto = concepto; Message = message; Amount = amount; Interest = interest; TransferId = transferId;
         }
+
+        public Prestamo()
+        {
+
+        }
     }
 }

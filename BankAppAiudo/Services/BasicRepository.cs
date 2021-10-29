@@ -89,6 +89,7 @@ namespace BankAppAiudo.Services
             userfromDB.Balance = userfromDB.Balance - amount;
             destineduserfromDB.Balance = destineduserfromDB.Balance + amount;
 
+            _context.Movements.Add(_mapper.Map<MovimientoDocument>(transferencia));
             _context.Update(userfromDB);
             _context.Update(destineduserfromDB);
             _context.SaveChanges();
@@ -110,6 +111,8 @@ namespace BankAppAiudo.Services
             
             _context.Users.Find(origin).Balance = _context.Users.Find(origin).Balance - amount;
             userfromDB.Balance = userfromDB.Balance + amount;
+            Console.WriteLine(userfromDB.Balance);
+            Console.WriteLine(userfromDB.Balance + amount);
 
             _context.Movements.Add(_mapper.Map<MovimientoDocument>(prestamo));
             _context.Users.Update(userfromDB);

@@ -27,5 +27,8 @@ namespace BankAppAiudo.Entities
             OriginId = origin; DestinationId = destination; Time = time; ResponsibleForThisId = responsible; Concepto = concepto; Message = message; Amount = amount; TransferId = transferId;
         }
 
+        public Transferencia()
+        {        }
+
     }
 }

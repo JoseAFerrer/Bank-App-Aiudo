@@ -10,7 +10,7 @@ namespace BankAppAiudo.PersistenceModels
     {
         [Key]
         public string Id { get; protected set; }
-        public string Password { get; protected set; }
+        public string Password { get;  set; }
         public int AccountNumber { get; set; }
         public double Balance { get;  set; }
 
