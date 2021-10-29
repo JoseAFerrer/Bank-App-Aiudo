@@ -86,8 +86,8 @@ namespace BankAppAiudo.Services
                 throw new InvalidOperationException();
             }
             var transferencia = new Transferencia(userfromDB.Id, destination, DateTimeOffset.UtcNow, userfromDB.Id, concepto, message, amount, Guid.NewGuid());
-            userfromDB.Balance = userfromDB.Balance - amount;
-            destineduserfromDB.Balance = destineduserfromDB.Balance + amount;
+            userfromDB.Balance -= amount;
+            destineduserfromDB.Balance += amount;
 
             _context.Movements.Add(_mapper.Map<MovimientoDocument>(transferencia));
             _context.Update(userfromDB);
@@ -110,7 +110,7 @@ namespace BankAppAiudo.Services
             var prestamo = new Prestamo(origin, userfromDB.Id, DateTimeOffset.UtcNow, userfromDB.Id, concepto, message, amount, interest, Guid.NewGuid());
             
             _context.Users.Find(origin).Balance = _context.Users.Find(origin).Balance - amount;
-            userfromDB.Balance = userfromDB.Balance + amount;
+            userfromDB.Balance += amount;
             Console.WriteLine(userfromDB.Balance);
             Console.WriteLine(userfromDB.Balance + amount);
 

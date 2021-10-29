@@ -13,7 +13,7 @@ namespace BankAppAiudo.Helpers
         public string IndebtedToId { get; set; }
         public Debt(Prestamo prestamo)
         {
-            Amount = prestamo.Amount * prestamo.Interest;
+            Amount = prestamo.Amount * (1+prestamo.Interest);
             SinceWhen = prestamo.Time;
             IndebtedToId = prestamo.OriginId;
         }
