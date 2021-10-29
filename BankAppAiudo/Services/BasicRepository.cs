@@ -1,4 +1,5 @@
-﻿using BankAppAiudo.Entities;
+﻿using BankAppAiudo.DbContexts;
+using BankAppAiudo.Entities;
 using BankAppAiudo.Helpers;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,12 @@ namespace BankAppAiudo.Services
     {
         Random randomgenerator = new();
 
+        private readonly BankAppContext _context;
+
+        public BasicRepository(BankAppContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
         //Aquí básicamente tenemos que decidir qué inyectar para que todo funcione y haya una base de datos como Dios manda xd. A llorar.
 
         public IUser CreateUser(string id, string password, double amount)

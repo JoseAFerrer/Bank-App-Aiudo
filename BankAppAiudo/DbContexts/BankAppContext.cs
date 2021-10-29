@@ -14,9 +14,9 @@ namespace BankAppAiudo.DbContexts
 
         }
 
-        public DbSet<ClienteDocument> CatalogItems { get; set; }
+        public DbSet<ClienteDocument> Users { get; set; }
 
-        public DbSet<MovimientoDocument> CatalogBrands { get; set; }
+        public DbSet<MovimientoDocument> Movements { get; set; }
 
     }
 }

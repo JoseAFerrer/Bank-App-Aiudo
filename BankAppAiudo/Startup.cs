@@ -1,8 +1,10 @@
+using BankAppAiudo.DbContexts;
 using BankAppAiudo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +37,12 @@ namespace BankAppAiudo
             });
 
             services.AddScoped<IBankAppRepository, BasicRepository>(); // Esto inyecta el repositorio básico como servicio scoped.
+
+            services.AddDbContext<BankAppContext>(options =>
+            {
+                options.UseSqlServer(
+                    @"Server=(localdb)\MSSQLLocalDB;Database=BankAppDB;Trusted_Connection=True;");
+            });
 
         }
 
