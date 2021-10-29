@@ -29,6 +29,15 @@ namespace BankAppAiudo.Entities
             Balance = amount;
         }
 
+        public Cliente(string id, string password, int accnumber, double amount)
+        {
+            Id = id;
+            Password = password;
+            AccountNumber = accnumber;
+            Balance = amount;
+        }
+        public Cliente()
+        {        }
 
         string IUser.ChangePassword(string id, string password, string newpassword)
         {

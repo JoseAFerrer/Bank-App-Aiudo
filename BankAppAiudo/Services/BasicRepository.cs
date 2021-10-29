@@ -1,6 +1,8 @@
-﻿using BankAppAiudo.DbContexts;
+﻿using AutoMapper;
+using BankAppAiudo.DbContexts;
 using BankAppAiudo.Entities;
 using BankAppAiudo.Helpers;
+using BankAppAiudo.PersistenceModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +15,29 @@ namespace BankAppAiudo.Services
         Random randomgenerator = new();
 
         private readonly BankAppContext _context;
+        private readonly IMapper _mapper;
 
-        public BasicRepository(BankAppContext context)
+        public BasicRepository(BankAppContext context, IMapper mapper)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _mapper = mapper;
         }
-        //Aquí básicamente tenemos que decidir qué inyectar para que todo funcione y haya una base de datos como Dios manda xd. A llorar.
+        //Todo: Aquí básicamente tenemos que decidir qué inyectar para que todo funcione y haya una base de datos como Dios manda xd. A llorar.
 
         public IUser CreateUser(string id, string password, double amount)
         {
             var newuser = new Cliente(id, password, amount);
             Random randomgenerator = new();
             newuser.AccountNumber = randomgenerator.Next(1000000, 9999999);
-            return newuser;
+
+            var newusertoDB = _mapper.Map<ClienteDocument>(newuser);
+
+            _context.Add(newusertoDB);
+            _context.SaveChanges();
+
+            var userfromDB =_context.Users.Find(id);
+
+            return _mapper.Map<Cliente>(userfromDB); //Todo: sacar esto de aquí, utilizarlo para el resto del repo
         }
         public IUser GetUser(string id, string password)
         { //TODO conseguir el cliente realmente de la base de datos, y no inventárselo (esto es relleno).

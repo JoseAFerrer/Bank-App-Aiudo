@@ -1,4 +1,6 @@
+using AutoMapper;
 using BankAppAiudo.DbContexts;
+using BankAppAiudo.Mappings;
 using BankAppAiudo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +39,16 @@ namespace BankAppAiudo
             });
 
             services.AddScoped<IBankAppRepository, BasicRepository>(); // Esto inyecta el repositorio básico como servicio scoped.
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfiles());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+
 
             services.AddDbContext<BankAppContext>(options =>
             {
