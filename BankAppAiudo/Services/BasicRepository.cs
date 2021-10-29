@@ -147,7 +147,6 @@ namespace BankAppAiudo.Services
                     Historial.Add(_mapper.Map<Transferencia>(movimiento));
                 }
             }
-            //Todo: meter también la deuda y el método para ejecutar la deuda, que se expresaría al usuario con HATEOAS.
             return Historial;
         }
 
