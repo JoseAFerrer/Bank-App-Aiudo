@@ -37,5 +37,16 @@ namespace BankAppAiudo.Controllers //TODO Este es el controlador bueno de los us
 
             return (Cliente)cliente;
         }
+
+        [HttpPost(Name = "CreateUser")]
+        public Cliente CreateUser(
+            string userid,
+            string userpassword,
+            double amount)
+        {
+            var cliente = bankAppRepository.CreateUser(userid, userpassword, amount);
+
+            return (Cliente)cliente;
+        }
     }
 }

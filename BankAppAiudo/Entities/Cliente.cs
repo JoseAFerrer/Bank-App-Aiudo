@@ -15,11 +15,18 @@ namespace BankAppAiudo.Entities
         public List<IMovimiento> Historial { get; protected set; }
         public List<Debt> Deudas { get; protected set; }
 
-        public Cliente(string id, string password, int accnumber)
+        public Cliente(string id, string password, int accnumber) //Todo: realmente cuando cargues un cliente el número de cuenta ya lo tendrás,
+                                                                  //así que no tiene sentido pedirlo porque la base de datos siempre te lo va a dar.
         {
             Id = id;
             Password = password;
             AccountNumber = accnumber;
+        }
+        public Cliente(string id, string password, double amount)
+        {
+            Id = id;
+            Password = password;
+            Balance = amount;
         }
 
 
