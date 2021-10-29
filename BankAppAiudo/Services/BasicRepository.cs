@@ -132,7 +132,7 @@ namespace BankAppAiudo.Services
             }
 
             var movementsdocument = _context.Movements
-               .Where(fila => fila.ResponsibleForThisId == id);
+               .Where(fila => fila.OriginId == id || fila.DestinationId == id);
 
             var Historial = new List<IMovimiento>();
 

@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "719756e4-bfd6-41f2-8ef6-1d4a970e8ba4",
+		"name": "BankAppAiudo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ver los movimientos de Pepetoni2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44357/api/userarea/movements?userid=Pepetoni2&userpassword=pepetino134",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44357",
+					"path": [
+						"api",
+						"userarea",
+						"movements"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "Pepetoni2"
+						},
+						{
+							"key": "userpassword",
+							"value": "pepetino134"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enviar dinero a Pepetoni",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44357/api/userarea/movements?responsibleId=44923334C&responsiblepassword=mycotrasena1%23&theotheruser=Pepetoni&concepto=Gasolina&message=Del%20viaje%20que%20hicimos%20el%20otro%20d%C3%ADa&amount=600.32&TransferOrBorrow=Transfer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44357",
+					"path": [
+						"api",
+						"userarea",
+						"movements"
+					],
+					"query": [
+						{
+							"key": "responsibleId",
+							"value": "44923334C"
+						},
+						{
+							"key": "responsiblepassword",
+							"value": "mycotrasena1%23"
+						},
+						{
+							"key": "theotheruser",
+							"value": "Pepetoni"
+						},
+						{
+							"key": "concepto",
+							"value": "Gasolina"
+						},
+						{
+							"key": "message",
+							"value": "Del%20viaje%20que%20hicimos%20el%20otro%20d%C3%ADa"
+						},
+						{
+							"key": "amount",
+							"value": "600.32"
+						},
+						{
+							"key": "TransferOrBorrow",
+							"value": "Transfer"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Pepetoni2 user, history and debts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44357/api/userarea?userid=Pepetoni2&userpassword=pepetino134",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44357",
+					"path": [
+						"api",
+						"userarea"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "Pepetoni2"
+						},
+						{
+							"key": "userpassword",
+							"value": "pepetino134"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44357/api/userarea?userid=TestUser2&userpassword=password1010&amount=25416.29\n",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44357",
+					"path": [
+						"api",
+						"userarea"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "TestUser2"
+						},
+						{
+							"key": "userpassword",
+							"value": "password1010"
+						},
+						{
+							"key": "amount",
+							"value": "25416.29\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update password for a user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44357/api/userarea?userid=TestUser2&userpassword=password1010&newpassword=password1010renewed",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44357",
+					"path": [
+						"api",
+						"userarea"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "TestUser2"
+						},
+						{
+							"key": "userpassword",
+							"value": "password1010"
+						},
+						{
+							"key": "newpassword",
+							"value": "password1010renewed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user TestUser2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44357/api/userarea?userid=TestUser2&userpassword=password1010renewed\n",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44357",
+					"path": [
+						"api",
+						"userarea"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "TestUser2"
+						},
+						{
+							"key": "userpassword",
+							"value": "password1010renewed\n"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
