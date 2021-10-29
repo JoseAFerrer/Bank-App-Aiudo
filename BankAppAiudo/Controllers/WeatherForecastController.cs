@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BankAppAiudo.Controllers
+namespace BankAppAiudo.Controllers //TODO Evidentemente este controlador se tendrá que ir cuando el programa tenga algo más de sustancia y pueda por lo menos levantarse.
 {
     [ApiController]
     [Route("[controller]")]

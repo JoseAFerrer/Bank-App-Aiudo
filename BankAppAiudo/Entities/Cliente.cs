@@ -10,15 +10,16 @@ namespace BankAppAiudo.Entities
     {
         public string Id { get; protected set; }
         public string Password { get; protected set; }
-        public int AccountNumber { get; protected set; }
+        public int AccountNumber { get;  set; }
         public double Balance { get; protected set; }
         public List<IMovimiento> Historial { get; protected set; }
         public List<Debt> Deudas { get; protected set; }
 
-        public Cliente(string id, string password)
+        public Cliente(string id, string password, double amount)
         {
-            this.Id = id;
-            this.Password = password;
+            Id = id;
+            Password = password;
+            Balance = amount;
         }
 
 

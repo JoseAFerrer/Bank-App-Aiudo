@@ -14,5 +14,7 @@ namespace BankAppAiudo.Entities
          string Concepto { get;  }
          string Message { get; }
         double Amount { get; }
+        Guid TransferId { get;}
+
     }
 }

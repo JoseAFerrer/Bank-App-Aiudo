@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
 namespace BankAppAiudo
 {
-    public class WeatherForecast
+    public class WeatherForecast //Todo: borrar esto será una prueba de fuego xd
     {
         public DateTime Date { get; set; }
 
